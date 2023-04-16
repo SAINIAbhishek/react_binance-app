@@ -1,4 +1,4 @@
-export type FormValues = {
+export type CurrencyPairs = {
   crypto: string;
   currency: string;
 }
