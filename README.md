@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Retrieve and display market data for a selected pair from Binance public API.
 
 ## SPECIFICATIONS
-Your mission, if you accept it is to:
+Application mission:
 - Users should be able to use a form to select the currency pair to query.
 - Upon submitting the form, fetch public market data (ticker, 24h ticker, recent trades) for
 the selected pair from Binance public REST api.
