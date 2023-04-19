@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {TradeType} from "../../types/Trade";
 import {Title} from "../../styles/Typogragphy.styles";
 import {FlexCenteredWrapper} from "../../styles/Wrappers.styles";
@@ -38,15 +38,17 @@ const columns = [
 
 export const Trades = ({trades, title}: Props) => {
 
-  const data: TradeType[] = trades.map((trade) => {
-    if (trade.price) {
-      trade.price = parseFloat(trade.price).toString();
-    }
-    if (trade.time && typeof trade.time === "number") {
-      trade.time = moment.unix(trade.time).format("LTS");
-    }
-    return trade;
-  });
+  const data = useMemo(() => {
+    return trades.map((trade) => {
+      if (trade.price) {
+        trade.price = parseFloat(trade.price).toString();
+      }
+      if (trade.time && typeof trade.time === "number") {
+        trade.time = moment.unix(trade.time).format("LTS");
+      }
+      return trade;
+    });
+  }, [trades]);
 
   return(
     <>

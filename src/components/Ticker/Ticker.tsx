@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {TickerType} from "../../types/Ticker";
 import {TickerWrapper} from "./Ticker.styles";
 import {Title} from "../../styles/Typogragphy.styles";
@@ -18,7 +18,11 @@ type TickerEntries = {
 
 export const Ticker = ({ticker, title}: Props) => {
 
-  const entries: TickerEntries[] = convertToEntries(ticker);
+  const [entries, setEntries] = useState<TickerEntries[]>([]);
+
+  useEffect(() => {
+    setEntries(convertToEntries(ticker));
+  }, [ticker]);
 
   return (
     <>
